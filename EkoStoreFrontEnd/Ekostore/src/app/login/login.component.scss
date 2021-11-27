@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #EFFBF7;
+}
+
+.text-center{
+    text-align: center!important;
+}
+
+.form-signin{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.btn{
+    background-color: #29BB89;
+    border: none;
+}
+
+.btn:hover{
+    background-color: #20946B;
+}
+
+.error {
+    background-color: #F4DBE4;
+    border-color: #DE94AE;
+}
+
+.ok {
+    background-color: #DCF4DB;
+    border-color: #96DE94;
+}
+
+.ecoStore{
+    font-family: 'Berkshire Swash', cursive;
+    font-size:60px;
+}

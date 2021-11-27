@@ -1,0 +1,31 @@
+<body class="text-center">
+    <main class="form-signin">
+        <div>
+            <h1 class="ecoStore">EcoStore</h1>
+            <i class="fab fa-opencart fa-4x"></i>
+            <div class="mb-3"></div>
+            <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
+            <!--Alertas-->
+            <div *ngIf="correct==1" class="alert ok" role="alert">
+                Redirigiendo al sistema
+            </div>
+            <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+                Correo/usuario o contraseña incorrectos
+            </div>
+            <!--correo y contraseña-->
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@email.com" [(ngModel)] = "user">
+                <label for="floatingInput">Correo</label>
+            </div>
+            <div class="mb-1"></div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" [(ngModel)] = "pass">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+            <div class="mb-3"></div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="comparar()">
+                Iniciar sesión
+            </button>
+        </div>
+    </main>    
+</body>

@@ -1,0 +1,40 @@
+.ecoStore{
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 30px;
+}
+
+.container{
+    text-align: center!important;
+    width: 100%;
+    max-width: 480px;
+    padding: 15px;
+    margin: auto;
+}
+
+.container-1{
+    text-align: center!important;
+    width: 100%;
+    max-width: 1030px;
+    padding: 15px;
+    margin: auto;
+}
+
+.error {
+    background-color: #F4DBE4;
+    border-color: #DE94AE;
+}
+
+.ok {
+    background-color: #DCF4DB;
+    border-color: #96DE94;
+}
+
+.btn{
+    color: #184D47;
+    background-color: #7CE2BE;
+    border: none;
+}
+
+.btn:hover{
+    background-color: #4AD7A6;
+}

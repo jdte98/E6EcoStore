@@ -1,0 +1,109 @@
+<!--
+<div class="container mt-5">
+    <h1 class="ecoStore">Cargar Productos</h1>
+    <div class="mb-3"></div>
+    --Alertas--
+    <div *ngIf="correct==1" class="alert ok" role="alert">
+        <i class="fas fa-file-csv fa-lg" style="color: #155E44"></i>
+        El archivo se ha cargado satisfactoriamente
+    </div>
+    <div *ngIf="correct==2" class="alert ok" role="alert">
+        <i class="far fa-trash-alt fa-lg" style="color: #155E44"></i>
+        ¡El archivo se ha eliminado!
+    </div>
+    <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-exclamation-triangle fa-lg" style="color: #C74D78"></i>
+        No fue posible cargar el archivo
+    </div>
+    --Cargar Archivo--
+    <div class="input-group shadow">
+        <input type="file" class="form-control" (change)="onChange($event)">
+        <button class="btn btn-outline" type="button" (click)="onUpload()">Cargar</button>
+    </div>
+    <div class="mb-3"></div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="mostrarProductos()">
+        Mostrar tabla de productos
+    </button>
+    <div class="mb-3"></div>
+    <div *ngIf="correct==1 || correct==3" class="form-floating">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>NIT</th>
+                    <th>IVA</th>
+                    <th>Precio Compra</th>
+                    <th>Precio Venta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of contenido">
+                    <td>{{producto.codigoproducto}}</td>
+                    <td>{{producto.nombreproducto}}</td> 
+                    <td>{{producto.nitproveedor}}</td> 
+                    <td>{{producto.ivacompra}}</td> 
+                    <td>{{producto.preciocompra}}</td> 
+                    <td>{{producto.precioventa}}</td> 
+                </tr>
+            </tbody>
+        </table>              
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="eliminarProductos()">
+        Eliminar todos los productos
+    </button>
+</div>
+-->
+
+<div class="container mt-3">
+    <h1 class="ecoStore">Cargar Productos</h1>
+    <div class="mb-3"></div>
+    <!--Alertas-->
+    <div *ngIf="correct==1" class="alert ok" role="alert">
+        <i class="fas fa-file-csv fa-lg" style="color: #155E44"></i>
+        El archivo se ha cargado satisfactoriamente
+    </div>
+    <div *ngIf="correct==2" class="alert ok" role="alert">
+        <i class="far fa-trash-alt fa-lg" style="color: #155E44"></i>
+        ¡El archivo se ha eliminado!
+    </div>
+    <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-exclamation-triangle fa-lg" style="color: #C74D78"></i>
+        No fue posible cargar el archivo
+    </div>
+    <!--Cargar Archivo-->
+    <div class="input-group shadow">
+        <input type="file" class="form-control" (change)="onChange($event)">
+        <button class="btn btn-outline" type="button" (click)="onUpload()">Cargar</button>
+    </div>    
+    <div class="mb-3"></div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="mostrarProductos()">
+        Mostrar tabla de productos
+    </button>
+</div>
+<div class="container-1 mt-2">
+    <div *ngIf="correct==1 || correct==3" class="form-floating">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>NIT</th>
+                    <th>IVA</th>
+                    <th>Precio Compra</th>
+                    <th>Precio Venta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of contenido">
+                    <td>{{producto.codigoproducto}}</td>
+                    <td>{{producto.nombreproducto}}</td> 
+                    <td>{{producto.nitproveedor}}</td> 
+                    <td>{{producto.ivacompra}}</td> 
+                    <td>{{producto.preciocompra}}</td> 
+                    <td>{{producto.precioventa}}</td> 
+                </tr>
+            </tbody>
+        </table>              
+    </div>
+</div>

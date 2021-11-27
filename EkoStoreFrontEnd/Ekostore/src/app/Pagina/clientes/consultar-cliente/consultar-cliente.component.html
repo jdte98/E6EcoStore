@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <h1 class="ecoStore animate__animated animate__fadeInDown">Consultar Cliente</h1>
+    <div class="mb-3"></div>
+    <!--Alertas-->
+    <div *ngIf="correct==2" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-list-ul fa-lg" style="color: #C74D78"></i>
+        ¡Debe ingresar la cédula!
+    </div>
+    <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-user-times fa-lg" style="color: #C74D78"></i>
+        ¡Hubo un error - intentelo de nuevo!
+    </div>
+    <!--Datos para crear usuario-->
+    <div class="form-floating animate__animated animate__fadeInLeft">
+        <input [(ngModel)]="cedula" type="text" class="form-control" id="floatingInput" placeholder="Cédula" required>
+        <label for="floatingInput">Cédula</label>
+    </div>
+    <div class="mb-2"></div>
+    <button (click)="consultarCliente()" class="w-100 btn btn-lg btn-primary animate__animated animate__fadeInUp" type="submit" >
+        Consultar
+    </button>
+    <div class="mb-3"></div>
+    <!--caja oculta de los datos-->
+    <div *ngIf="correct==1">        
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input [(ngModel)]="cedula_inf" type="text" class="form-control datos" id="floatingPassword" placeholder="Cédula" disabled>
+            <label for="floatingPassword">Cédula</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInLeft">
+            <input [(ngModel)]="nombre_inf" type="text" class="form-control datos" id="floatingPassword" placeholder="Correo" disabled>
+            <label for="floatingPassword">Nombre</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input [(ngModel)]="email_inf"type="text" class="form-control datos" id="floatingPassword" placeholder="Teléfono" disabled>
+            <label for="floatingPassword">Correo</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInLeft">
+            <input [(ngModel)]="telefono_inf" type="text" class="form-control datos" id="floatingPassword" placeholder="Dirección" disabled>
+            <label for="floatingPassword">Teléfono</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input [(ngModel)]="direccion_inf" type="text" class="form-control datos" id="floatingPassword" placeholder="Dirección" disabled>
+            <label for="floatingPassword">Dirección</label>
+        </div>
+    </div>
+</div>

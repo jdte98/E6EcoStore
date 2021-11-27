@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <h1 class="ecoStore animate__animated animate__fadeInDown">Crear Usuario</h1>
+    <div class="mb-3"></div>
+    <!--Alertas-->
+    <div *ngIf="correct==1" class="alert ok" role="alert">
+        <i class="fas fa-user-plus fa-lg" style="color: #155E44"></i>
+        El usuario ha sido creado
+    </div>
+    <div *ngIf="correct==2" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-list-ul fa-lg" style="color: #C74D78"></i>
+        ¡Debe ingresar todos los datos!
+    </div>
+    <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-user-times fa-lg" style="color: #C74D78"></i>
+        ¡No fue posible ingresar el usuario!
+    </div>
+    <!--Datos para crear usuario-->
+    <div class="form-floating animate__animated animate__fadeInLeft">
+        <input [(ngModel)]="nombre" type="text" class="form-control" id="floatingInput" placeholder="name@email.com" required>
+        <label for="floatingInput">Nombre Completo</label>
+    </div>
+    <div class="mb-1"></div>
+    <div class="form-floating animate__animated animate__fadeInRight">
+        <input [(ngModel)]="email" type="email" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+        <label for="floatingPassword">Correo electronico</label>
+    </div>
+    <div class="mb-1"></div>
+    <div class="form-floating animate__animated animate__fadeInLeft">
+        <input [(ngModel)]="user" type="text" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+        <label for="floatingPassword">Nombre de Usuario</label>
+    </div>
+    <div class="mb-1"></div>
+    <div class="form-floating animate__animated animate__fadeInRight">
+        <input [(ngModel)]="pass" type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+        <label for="floatingPassword">Contraseña</label>
+    </div>
+    <div class="mb-3"></div>
+    <button (click)="crearUsuario()" class="w-100 btn btn-lg btn-primary animate__animated animate__fadeInUp" type="submit" >
+        Agregar
+    </button>
+</div>
