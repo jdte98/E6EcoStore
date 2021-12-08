@@ -2,13 +2,17 @@
     <h1 class="ecoStore animate__animated animate__fadeInDown">Consultar Cliente</h1>
     <div class="mb-3"></div>
     <!--Alertas-->
-    <div *ngIf="correct==2" class="alert error rong animate__animated animate__shakeX" role="alert">
+    <div *ngIf="correct==2 && codigoerror!=500" class="alert error rong animate__animated animate__shakeX" role="alert">
         <i class="fas fa-list-ul fa-lg" style="color: #C74D78"></i>
         ¡Debe ingresar la cédula!
     </div>
     <div *ngIf="correct==0" class="alert error rong animate__animated animate__shakeX" role="alert">
         <i class="fas fa-user-times fa-lg" style="color: #C74D78"></i>
         ¡Hubo un error - intentelo de nuevo!
+    </div>
+    <div *ngIf="codigoerror == 500" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-user-times fa-lg" style="color: #C74D78"></i>
+        ¡No existe el cliente con cedula {{cedula}}!
     </div>
     <!--Datos para crear usuario-->
     <div class="form-floating animate__animated animate__fadeInLeft">
@@ -21,7 +25,7 @@
     </button>
     <div class="mb-3"></div>
     <!--caja oculta de los datos-->
-    <div *ngIf="correct==1">        
+    <div *ngIf="correct==1 && codigoerror!=500">        
         <div class="form-floating animate__animated animate__fadeInRight">
             <input [(ngModel)]="cedula_inf" type="text" class="form-control datos" id="floatingPassword" placeholder="Cédula" disabled>
             <label for="floatingPassword">Cédula</label>

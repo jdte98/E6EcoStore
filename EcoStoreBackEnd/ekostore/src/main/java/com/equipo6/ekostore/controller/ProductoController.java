@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.equipo6.ekostore.model.Producto;
 import com.equipo6.ekostore.repository.ProductoRepository;
+import com.mongodb.DuplicateKeyException;
 
 @CrossOrigin(origins = "*")
 //@CrossOrigin(origins = "http://localhost:8081")
@@ -68,6 +69,8 @@ public class ProductoController {
 					new Producto(product.getCodigoproducto(), product.getIvacompra(), product.getNitproveedor(), product.getNombreproducto(),
 							product.getPreciocompra(), product.getPrecioventa()));
 			return new ResponseEntity<>(_producto, HttpStatus.CREATED);
+		} catch (DuplicateKeyException e) {
+			return new ResponseEntity<>(null, HttpStatus.CONFLICT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -112,10 +115,10 @@ public class ProductoController {
 		}
 	}
 	
-	@GetMapping("/productos/{username}")
-	public ResponseEntity<List<Producto>> findByUsername(@PathVariable("username") String nombre) {
+	@GetMapping("/productos/codigo/{codigo}")
+	public ResponseEntity<List<Producto>> findByCodigo(@PathVariable("codigo") long codigo) {
 		try {
-			List<Producto> productos = productoRepository.findByNombreproducto(nombre);
+			List<Producto> productos = productoRepository.findByCodigoproducto(codigo);
 
 			if (productos.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

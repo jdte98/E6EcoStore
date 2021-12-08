@@ -1,1 +1,61 @@
-<p>actualizar-cliente works!</p>
+<div class="container mt-5">
+    <h1 class="ecoStore animate__animated animate__fadeInDown">Actualizar Cliente</h1>
+    <div class="mb-3"></div>
+    <!--Alertas-->
+    <div  class="alert ok rong" role="alert">
+        <i class="fas fa-user-check fa-lg" style="color: #155E44"></i>
+        Cliente actualizado
+    </div>
+    <div  class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-list-ul fa-lg" style="color: #C74D78"></i>
+        ¡Debe ingresar la cédula!
+    </div>
+    <div  class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-user-times fa-lg" style="color: #C74D78"></i>
+        ¡Hubo un error - intentelo de nuevo!
+    </div>
+    <div  class="alert error rong animate__animated animate__shakeX" role="alert">
+        ¡No existe el cliente con este número de cédula!
+    </div>
+    <!--Datos para crear usuario-->
+    <div class="form-floating animate__animated animate__fadeInLeft">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Cédula" required>
+        <label for="floatingInput">Cédula</label>
+    </div>
+    <div class="mb-2"></div>
+    <button class="w-100 btn btn-lg btn-primary animate__animated animate__fadeInUp" type="submit" >
+        Buscar
+    </button>
+    <div class="mb-3"></div>
+    <!--caja oculta de los datos-->
+    <div >        
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input type="text" class="form-control datos" id="floatingPassword" placeholder="Cédula">
+            <label for="floatingPassword">Cédula</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInLeft">
+            <input type="text" class="form-control datos" id="floatingPassword" placeholder="Correo">
+            <label for="floatingPassword">Nombre</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input type="text" class="form-control datos" id="floatingPassword" placeholder="Teléfono">
+            <label for="floatingPassword">Correo</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInLeft">
+            <input type="text" class="form-control datos" id="floatingPassword" placeholder="Dirección">
+            <label for="floatingPassword">Teléfono</label>
+        </div>
+        <div class="mb-1"></div>
+        <div class="form-floating animate__animated animate__fadeInRight">
+            <input type="text" class="form-control datos" id="floatingPassword" placeholder="Dirección">
+            <label for="floatingPassword">Dirección</label>
+        </div>
+        <div class="mb-2"></div>
+        <button class="w-100 btn btn-lg btn-primary animate__animated animate__fadeInUp" type="submit" >
+            Actualizar
+        </button>
+    </div>
+</div>

@@ -20,6 +20,7 @@ import { ActualizarClienteComponent } from './Pagina/clientes/actualizar-cliente
 import { ConsultarClienteComponent } from './Pagina/clientes/consultar-cliente/consultar-cliente.component';
 import { EliminarClienteComponent } from './Pagina/clientes/eliminar-cliente/eliminar-cliente.component';
 import { PrincipalClienteComponent } from './Pagina/clientes/principal-cliente/principal-cliente.component';
+import { VentasComponent } from './Pagina/ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PrincipalClienteComponent } from './Pagina/clientes/principal-cliente/p
     ActualizarClienteComponent,
     ConsultarClienteComponent,
     EliminarClienteComponent,
-    PrincipalClienteComponent
+    PrincipalClienteComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,

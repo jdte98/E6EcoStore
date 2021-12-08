@@ -6,7 +6,7 @@
 .container{
     text-align: center!important;
     width: 100%;
-    max-width: 530px;
+    max-width: 1130px;
     padding: 15px;
     margin: auto;
 }
@@ -24,11 +24,12 @@
 .btn{
     color: #184D47;
     background-color: #7CE2BE;
-    border: none;
+    border-color: #7CE2BE;
 }
 
 .btn:hover{
     background-color: #4AD7A6;
+    border-color: #20946B;
 }
 
 .btn-card{
@@ -41,6 +42,6 @@
 }
 
 .datos{
-    background-color: #CEF4E7;
+    background-color: #EFFBF7;
     border-color: #9CE9CE;
 }

@@ -1,0 +1,148 @@
+<div class="container mt-2 g-2">
+    <h1 class="ecoStore animate__animated animate__fadeInDown">Ventas</h1>
+    <div class="mb-3"></div>
+    <!--Alertas-->
+    <div *ngIf="notif==1" class="alert ok" role="alert">
+        <i class="fas fa-check fa-lg" style="color: #155E44"></i>
+        Venta realizada
+    </div>
+    <div *ngIf="notif==0" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="fas fa-times fa-lg" style="color: #C74D78"></i>
+        El cliente no existe
+    </div>
+    <div *ngIf="notif==2" class="alert error rong animate__animated animate__shakeX" role="alert">
+        <i class="far fa-clone fa-lg" style="color: #C74D78"></i>
+        Error en duplicado del codigo de venta
+    </div>
+    <!--Datos para la venta-->
+    <div class="row g-2">
+        <!--Ciudad-->
+        <div class="form-floating col-lg-2">
+            <select [(ngModel)]="ciudad" class="form-select shadow-sm" id="floatingSelect" aria-label="Floating label select example">
+                <option selected>Seleccione...</option>
+                <option value="1">Bogotá</option>
+                <option value="2">Medellín</option>
+                <option value="3">Cali</option>
+            </select>
+            <label for="floatingSelect">Ciudad</label>
+        </div>
+        <!--Cédula-->
+        <div class="form-floating col-lg-3 col-md-6 col-sm-12">
+            <input [(ngModel)]="cedulacliente" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Cédula" required>
+            <label for="floatingInput">Cédula</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <button (click)="getCliente()" id="botonP" class="h-100 w-100 btn btn-lg btn-primary shadow-sm animate__animated" type="submit" (mouseover)="inObject(0)" (mouseleave)="outObject(0)">
+                Consultar
+            </button>
+        </div>
+        <div class="form-floating col-lg-3 col-md-6 col-sm-12">
+            <input [(ngModel)]="clientedata.nombrecliente" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Cédula" disabled>
+            <label for="floatingInput">Cliente</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="consecutivo" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Cliente" disabled>
+            <label for="floatingInput">Consecutivo</label>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+    <hr>
+    <!--Producto No. 1-->
+    <div class="row g-2">
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="cp1" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Codigo" required>
+            <label for="floatingInput">Cod. Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <button id="boton1" class="h-100 w-100 btn btn-lg btn-primary shadow-sm animate__animated" type="submit"(mouseover)="inObject(1)" (mouseleave)="outObject(1)" (click)="getProducto(1)">
+                <i class="fas fa-search fa-lg"></i> <!--Boton consultar 1-->
+            </button>
+        </div>        
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="p1[0].nombreproducto" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Producto" disabled>
+            <label for="floatingInput">Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="np1" (input)="calcPrecioPro(1)" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Cantidad" required>
+            <label for="floatingInput">Cantidad</label>
+        </div>
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="preciop1" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Valor Total</label>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+    <!--Producto No. 2-->
+    <div class="row g-2">
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="cp2" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Codigo" required>
+            <label for="floatingInput">Cod. Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <button id="boton2" class="h-100 w-100 btn btn-lg btn-primary shadow-sm animate__animated" type="submit" (mouseover)="inObject(2)" (mouseleave)="outObject(2)" (click)="getProducto(2)">
+                <i class="fas fa-search fa-lg"></i> <!--Boton consultar 2-->
+            </button>
+        </div>        
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="p2[0].nombreproducto" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Producto" disabled>
+            <label for="floatingInput">Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="np2" (input)="calcPrecioPro(2)" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Cantidad" required>
+            <label for="floatingInput">Cantidad</label>
+        </div>
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="preciop2" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Valor Total</label>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+    <!--Producto No. 3-->
+    <div class="row g-2">
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="cp3" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Codigo" required>
+            <label for="floatingInput">Cod. Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <button id="boton3" class="h-100 w-100 btn btn-lg btn-primary shadow-sm animate__animated" type="submit" (mouseover)="inObject(3)" (mouseleave)="outObject(3)" (click)="getProducto(3)">
+                <i class="fas fa-search fa-lg"></i>  <!--Boton consultar 3-->
+            </button>
+        </div>        
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="p3[0].nombreproducto" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Producto" disabled>
+            <label for="floatingInput">Producto</label>
+        </div>
+        <div class="form-floating col-lg-2 col-md-6 col-sm-12">
+            <input [(ngModel)]="np3" (input)="calcPrecioPro(3)" type="text" class="form-control shadow-sm" id="floatingInput" placeholder="Cantidad" required>
+            <label for="floatingInput">Cantidad</label>
+        </div>
+        <div class="form-floating col-lg col-md-6 col-sm-12">
+            <input [(ngModel)]="preciop3" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Valor Total</label>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+    <hr>
+    <div class="row justify-content-end g-2">
+        <div class="form-floating col-lg-3">
+            <input [(ngModel)]="totalVenta" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Total Venta</label>
+        </div>
+        <div class="g-2"></div>
+        <div class="form-floating col-lg-3">
+            <input [(ngModel)]="totalIva" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Total IVA</label>
+        </div>
+        <div class="g-2"></div>
+        <div class="form-floating col-lg-3">
+            <input [(ngModel)]="totalConIva" type="text" class="form-control datos shadow-sm" id="floatingInput" placeholder="Valor total" disabled>
+            <label for="floatingInput">Total con IVA</label>
+        </div>
+        <div class="g-2"></div>
+        <div class="form-floating col-lg-3">
+            <button id="boton4" class="h-100 w-100 btn btn-lg btn-primary shadow-sm animate__animated" type="submit" (mouseover)="inObject(4)" (mouseleave)="outObject(4)" (click)="postVenta()">
+                Confirmar
+            </button>
+        </div>
+    </div>    
+</div>

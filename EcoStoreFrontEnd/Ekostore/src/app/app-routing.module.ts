@@ -11,6 +11,7 @@ import { FormUsuariosComponent } from './Pagina/form-usuarios/form-usuarios.comp
 import { PrincipalUsuarioComponent } from './Pagina/form-usuarios/principal-usuario/principal-usuario.component';
 import { PrincipalComponent } from './Pagina/principal/principal.component';
 import { ProductosComponent } from './Pagina/productos/productos.component';
+import { VentasComponent } from './Pagina/ventas/ventas.component';
 
 const routes: Routes = [
   {path:"",
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path:"productos",
     component:ProductosComponent
+  },
+  {
+    path:"ventas",
+    component:VentasComponent
   }
 ];
 

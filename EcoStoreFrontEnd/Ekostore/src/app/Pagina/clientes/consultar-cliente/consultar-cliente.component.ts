@@ -24,26 +24,32 @@ export class ConsultarClienteComponent implements OnInit {
   res: any;
   contenido: any;
   urlapi: string = "http://localhost:8080/api/clientes/cedula/"
-
+  error: boolean = false;
+  codigoerror:any;
+  
   consultarCliente(){
     if(this.cedula == "" || this.cedula == undefined) {
       this.correct = 2;
     } else {
-      this.res = this.objetohttp.get(this.urlapi+this.cedula);
+      this.res = this.objetohttp.get(this.urlapi+this.cedula, {observe: 'response'});
       this.res.subscribe((data:any[]) => {
+
         this.correct = 1;
         this.contenido = data;
         console.log(this.contenido)
-        this.cedula_inf = this.contenido.cedulacliente;
-        this.nombre_inf = this.contenido.nombrecliente;
-        this.email_inf = this.contenido.emailcliente;
-        this.telefono_inf = this.contenido.telefonocliente;
-        this.direccion_inf = this.contenido.direccioncliente;
+        this.cedula_inf = this.contenido.body.cedulacliente;
+        this.nombre_inf = this.contenido.body.nombrecliente;
+        this.email_inf = this.contenido.body.emailcliente;
+        this.telefono_inf = this.contenido.body.telefonocliente;
+        this.direccion_inf = this.contenido.body.direccioncliente;
   
         this.cedula = ""
-      });
+      },
+      (response:any) =>{
+        this.codigoerror = response.status;
+      }
+      );
     }
-
   }
 
   ngOnInit(): void {
